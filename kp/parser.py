@@ -16,7 +16,7 @@ def getName(line):
 if __name__ == '__main__':
     data = []
     output = open("db.pl", "w")
-    #creating a list of string from input file
+    #creating a list of strings from input file
     with open("file.ged") as input:
         data = [row.strip() for row in input]
     indexes = list(filter(None, map(getID, data)))
