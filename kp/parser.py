@@ -1,12 +1,12 @@
 import re
 
-#if string looks like 0 @I...@ INDI we get ID of a person from it
+#if string looks like "0 @I...@ INDI" we get ID of a person from it
 def getID(line):
     ID = re.search(r"^0\s+@I(\d+)@\s+INDI$", line)
     if ID is not None:
         return ID.group(1)
 
-#if string looks like 1 NAME <first name> /<last name>/ we get name and surname
+#if string looks like "1 NAME <first name> /<last name>/" we get name and surname
 #of a person from it
 def getName(line):
     Name = re.search(r"^1\s+NAME\s+(\w+)\s+/(\w+)/$", line)
