@@ -58,9 +58,9 @@ if __name__ == '__main__':
     #constructing predicates and printing them    
     for predicate in fatherPredicate:
         father, child = predicate
-        output.write("father({}, {}).\n".format(father, child))
+        output.write("father('{}', '{}').\n".format(father, child))
     output.write('\n')    
     for predicate in motherPredicate:
         mother, child = predicate
-        output.write("mother({}, {}).\n".format(mother, child))
+        output.write("mother('{}', '{}').\n".format(mother, child))
     output.close()
