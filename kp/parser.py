@@ -23,8 +23,8 @@ if __name__ == '__main__':
     names = list(filter(None, map(getName, data)))
     #creating a dictionary which stores pairs "ID - first name, last name"
     persons = dict(zip(indexes, names))
-    fatherPredicate = []
-    motherPredicate = []
+    fatherFacts = []
+    motherFacts = []
     for line in data:
         #since some families can lack father or mother we have to make sure
         #that we won't use father or mother from previous family
@@ -49,18 +49,18 @@ if __name__ == '__main__':
             #if father is present add father predicate
             if father is not None:
                 withFather = (father, persons[childID.group(1)])
-                fatherPredicate.append(withFather)
+                fatherFacts.append(withFather)
             #if mother is present add mother predicate    
             if mother is not None:    
                 withMother = (mother, persons[childID.group(1)])
-                motherPredicate.append(withMother)
+                motherFacts.append(withMother)
             continue
-    #constructing predicates and printing them    
-    for predicate in fatherPredicate:
-        father, child = predicate
+    #constructing facts and printing them    
+    for fact in fatherFacts:
+        father, child = fact
         output.write("father('{}', '{}').\n".format(father, child))
     output.write('\n')    
-    for predicate in motherPredicate:
-        mother, child = predicate
+    for fact in motherFacts:
+        mother, child = fact
         output.write("mother('{}', '{}').\n".format(mother, child))
     output.close()
